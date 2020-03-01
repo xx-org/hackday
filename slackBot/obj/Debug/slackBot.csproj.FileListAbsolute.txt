@@ -42,3 +42,4 @@
 /Users/xichao/Documents/IESD/hackday/slackBot/bin/Debug/Newtonsoft.Json.xml
 /Users/xichao/Documents/IESD/hackday/slackBot/bin/Debug/System.Diagnostics.DiagnosticSource.xml
 /Users/xichao/Documents/IESD/hackday/slackBot/obj/Debug/slackBot.csproj.CopyComplete
+/Users/xichao/Documents/IESD/hackday/slackBot/bin/Debug/SlackAPI.dll

@@ -1,28 +1,22 @@
 ﻿using Castle.MicroKernel.Registration;
 using Castle.Windsor;
 using MargieBot;
+using SlackAPI;
 using SlackBot;
 using System;
 using System.Configuration;
+using System.Threading.Tasks;
 
 namespace AwesomeBot
 {
     public class Program
     {
-        private static void Main(string[] args)
+        public static async Task Main(string[] args)
         {
-            var container = new WindsorContainer();
-            container.Register(Component.For<IResponder>().ImplementedBy<HelloResponder>());
+            const string TOKEN = "xoxb-975330989108-978001920342-1O8EiAr7DQuldMYrPnnsebf0";  // token from last step in section above
+            var slackClient = new SlackTaskClient(TOKEN);
 
-            var bot = new Bot();
-            var responders = container.ResolveAll<IResponder>();
-            foreach (var responder in responders)
-            {
-                bot.Responders.Add(responder);
-            }
-            var connect = bot.Connect(ConfigurationManager.AppSettings["SlackBotApiToken"]);
-
-            while (Console.ReadLine() != "close") { }
+            var response = await slackClient.PostMessageAsync("#general", "hello world");
         }
     }
 }

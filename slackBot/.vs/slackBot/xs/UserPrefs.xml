@@ -1,8 +1,7 @@
 ﻿<Properties StartupConfiguration="{119F59CD-D484-4905-B7EE-243CF7214B25}|Default">
   <MonoDevelop.Ide.Workbench ActiveDocument="Program.cs">
     <Files>
-      <File FileName="Program.cs" Line="14" Column="42" />
-      <File FileName="App.config" Line="11" Column="1" />
+      <File FileName="Program.cs" Line="19" Column="10" />
       <File FileName="EmptyCSharpFile.cs" Line="23" Column="2" />
     </Files>
     <Pads>
@@ -10,7 +9,6 @@
         <State name="__root__">
           <Node name="slackBot" expanded="True">
             <Node name="slackBot" expanded="True">
-              <Node name="Properties" expanded="True" />
               <Node name="Program.cs" selected="True" />
             </Node>
           </Node>
