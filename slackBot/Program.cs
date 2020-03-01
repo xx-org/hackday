@@ -1,12 +1,28 @@
-﻿using System;
+﻿using Castle.MicroKernel.Registration;
+using Castle.Windsor;
+using MargieBot;
+using SlackBot;
+using System;
+using System.Configuration;
 
-namespace slackBot
+namespace AwesomeBot
 {
-    class MainClass
+    public class Program
     {
-        public static void Main(string[] args)
+        private static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            var container = new WindsorContainer();
+            container.Register(Component.For<IResponder>().ImplementedBy<HelloResponder>());
+
+            var bot = new Bot();
+            var responders = container.ResolveAll<IResponder>();
+            foreach (var responder in responders)
+            {
+                bot.Responders.Add(responder);
+            }
+            var connect = bot.Connect(ConfigurationManager.AppSettings["SlackBotApiToken"]);
+
+            while (Console.ReadLine() != "close") { }
         }
     }
 }
